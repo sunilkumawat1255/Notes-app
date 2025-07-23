@@ -1,0 +1,256 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Container styling */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #cf9aff, #f7f7f7);
+  color: #333;
+  padding: 1% 10%;
+}
+
+/* Responsive header layout */
+@media (min-width: 768px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Heading */
+.container h1 {
+  display: flex;
+  align-items: center;
+  font-size: 35px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #4b0082;
+}
+
+.container h1 img {
+  width: 60px;
+  margin-right: 10px;
+}
+
+/* Buttons wrapper */
+.buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn,
+.toggle-theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #9418fd, #571094);
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 20px;
+  cursor: pointer;
+  height: 50px;
+  transition: background 0.3s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 8px rgba(148, 24, 253, 0.5);
+}
+
+.btn:hover,
+.toggle-theme-btn:hover {
+  box-shadow: 0 6px 14px rgba(148, 24, 253, 0.7);
+}
+
+.btn img {
+  width: 25px;
+  margin-right: 8px;
+}
+
+.toggle-theme-btn {
+  background: #ffffffcc;
+  color: #000;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.toggle-theme-btn:hover {
+  background-color: #ddd;
+}
+
+/* Search bar */
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  padding: 14px 18px;
+  font-size: 17px;
+  margin-bottom: 20px;
+  border-radius: 40px;
+  border: 2px solid #ddd;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-bar:focus {
+  border-color: #9418fd;
+  box-shadow: 0 0 8px rgba(148, 24, 253, 0.4);
+}
+
+/* Notes container layout */
+.notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* Note card */
+.input-box {
+  position: relative;
+  max-width: 100%;
+  min-height: 280px;
+  background: #fff;
+  color: #333;
+  padding: 28px 24px 24px 24px;
+  border-radius: 14px;
+  outline: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  box-shadow: 0 4px 12px rgba(148, 24, 253, 0.15);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+  cursor: default;
+}
+
+.input-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(148, 24, 253, 0.3);
+}
+
+/* Title in note */
+.note-title {
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #9418fd;
+  color: #4b0082;
+}
+
+/* Note content */
+.note-content {
+  font-size: 16px;
+  line-height: 1.5;
+  padding-top: 12px;
+  color: #444;
+  max-height: 180px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+.note-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.note-content::-webkit-scrollbar-thumb {
+  background: rgba(148, 24, 253, 0.4);
+  border-radius: 3px;
+}
+
+/* Edit, delete, and pin buttons */
+.input-box img {
+  width: 28px;
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+}
+
+.input-box .edit-btn {
+  bottom: 18px;
+  right: 70px;
+}
+
+.input-box .delete-btn {
+  bottom: 18px;
+  right: 18px;
+}
+
+/* PIN button as emoji */
+.input-box .pin-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.input-box .pin-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Pinned note border effect */
+.input-box.pinned {
+  border: 2px solid #9418fd;
+  box-shadow: 0 0 12px #9418fd;
+}
+
+/* Dark mode overrides */
+body.dark-mode {
+  background-color: #0f0f0f;
+  color: #e0e0e0;
+}
+
+body.dark-mode .container {
+  background: linear-gradient(135deg, #343232, #333);
+}
+
+body.dark-mode .input-box {
+  background: #4a4a4a;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(148, 24, 253, 0.5);
+}
+
+body.dark-mode .note-title {
+  color: #e0c3ff;
+  border-color: #bb86fc;
+}
+
+body.dark-mode .note-content {
+  color: #ccc;
+}
+
+body.dark-mode .btn,
+body.dark-mode .toggle-theme-btn {
+  background: linear-gradient(to right, #d7c6c6, #cec8c8b2);
+  color: #333;
+  border-color: #555;
+  box-shadow: none;
+}
+
+body.dark-mode .toggle-theme-btn:hover {
+  background-color: #222;
+}
+
+body.dark-mode .input-box img {
+  filter: brightness(0.85);
+}
+.note-title:focus,
+.note-content:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}

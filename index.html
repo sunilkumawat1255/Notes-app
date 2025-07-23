@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notes App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>
+        <img
+          src="https://cdn0.iconfinder.com/data/icons/file-and-folder-free-1/32/File_Files_Folder_Document_Doc_Data-32-64.png"
+          alt="Notes Icon"
+        />
+        Notes
+      </h1>
+
+      <div class="buttons-wrapper">
+        <button class="btn" id="create-btn">
+          <img
+            src="https://cdn2.iconfinder.com/data/icons/boxicons-solid-vol-2/24/bxs-edit-alt-64.png"
+            alt="Edit Icon"
+          />
+          Create Note
+        </button>
+
+        <button class="toggle-theme-btn" id="toggle-theme-btn">
+          🌙 Dark Mode
+        </button>
+      </div>
+    </div>
+
+    <!-- Search bar -->
+    <input
+      type="text"
+      class="search-bar"
+      id="search-bar"
+      placeholder="Search notes..."
+    />
+
+    <!-- Notes container -->
+    <div class="notes-container" id="notes-container">
+      <!-- Notes will be inserted here dynamically -->
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
